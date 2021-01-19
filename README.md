@@ -1,15 +1,20 @@
 # food-order-simulator
 Generates fake food orders for building food delivery app
 
+http://localhost:8080/orders/stream
+
+![demo](media/order-stream.gif)
+
+
 ## Referred with thanks
-###java-faker
+### java-faker
 - https://github.com/DiUS/java-faker
 - https://www.baeldung.com/java-faker
 
-###Food Order dataset
+### Food Order dataset
 - https://www.kaggle.com/henslersoftware/19560-indian-takeaway-orders
 
-###Others
+### Others
 - https://www.vertabelo.com/blog/a-restaurant-delivery-data-model/
 - https://www.honeybadger.io/blog/uuids-and-ulids/
 - https://mkyong.com/spring-boot/spring-boot-webflux-server-sent-events-example/
