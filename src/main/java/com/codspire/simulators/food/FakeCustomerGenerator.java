@@ -1,6 +1,7 @@
 package com.codspire.simulators.food;
 
 import com.codspire.simulators.food.model.Customer;
+import com.codspire.simulators.food.utils.TrackTime;
 import com.github.javafaker.Faker;
 import de.huxhorn.sulky.ulid.ULID;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +16,7 @@ public class FakeCustomerGenerator {
 	@Value("${customer.emailPattern}")
 	private String emailPattern;
 
+	@TrackTime
 	public Customer get() {
 
 		return Customer.builder()

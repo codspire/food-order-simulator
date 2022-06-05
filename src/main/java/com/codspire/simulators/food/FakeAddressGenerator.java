@@ -1,6 +1,7 @@
 package com.codspire.simulators.food;
 
 import com.codspire.simulators.food.model.Address;
+import com.codspire.simulators.food.utils.TrackTime;
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.RandomService;
 import org.apache.commons.lang3.StringUtils;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.Locale;
+
+import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 @Component
 public class FakeAddressGenerator {
@@ -28,14 +31,15 @@ public class FakeAddressGenerator {
 		this.faker = new Faker(new Locale(locale), new RandomService());
 	}
 
+	@TrackTime
 	public Address get() {
 		com.github.javafaker.Address fakeAddress = faker.address();
 		return Address.builder()
 				.streetAddress(fakeAddress.streetAddress(true))
 				.city(fakeAddress.city())
-				.zip(StringUtils.isNotEmpty(zipCodePattern) ? faker.bothify(zipCodePattern)
-						: StringUtils.isNotEmpty(stateAbbr) ? fakeAddress.zipCodeByState(stateAbbr) : fakeAddress.zipCode())
-				.stateAbbr(StringUtils.isNotEmpty(stateAbbr) ? stateAbbr : fakeAddress.stateAbbr())
+				.zip(isNotEmpty(zipCodePattern) ? faker.bothify(zipCodePattern)
+						: isNotEmpty(stateAbbr) ? fakeAddress.zipCodeByState(stateAbbr) : fakeAddress.zipCode())
+				.stateAbbr(isNotEmpty(stateAbbr) ? stateAbbr : fakeAddress.stateAbbr())
 				.build();
 	}
 }
