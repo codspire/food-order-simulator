@@ -30,7 +30,7 @@ public class OrdersControllerTest {
 
 		List<PlacedOrder> placedOrders = webClient
 				.get().uri("/orders/stream")
-				.accept(MediaType.valueOf(MediaType.APPLICATION_STREAM_JSON_VALUE))
+				.accept(MediaType.APPLICATION_NDJSON)
 				.exchange()
 				.expectStatus().isOk()
 				.returnResult(PlacedOrder.class)
@@ -64,7 +64,7 @@ public class OrdersControllerTest {
 
 		List<PlacedOrder> placedOrders = webClient
 				.get().uri("/orders/stream-sse")
-				.accept(MediaType.valueOf(MediaType.APPLICATION_STREAM_JSON_VALUE))
+				.accept(MediaType.APPLICATION_NDJSON)
 				.exchange()
 				.expectStatus().isOk()
 				.returnResult(PlacedOrder.class)

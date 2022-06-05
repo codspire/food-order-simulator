@@ -2,6 +2,7 @@ package com.codspire.simulators.food;
 
 import com.codspire.simulators.food.model.Order;
 import com.codspire.simulators.food.model.OrderItem;
+import com.codspire.simulators.food.utils.TrackTime;
 import com.github.javafaker.Faker;
 import de.huxhorn.sulky.ulid.ULID;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ public class FakeOrderGenerator {
 	@Autowired
 	private RandomOrderItem randomOrderItem;
 
+	@TrackTime
 	public Order get() {
 
 		Order order = Order.builder()

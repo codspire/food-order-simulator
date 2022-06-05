@@ -59,5 +59,13 @@ http://localhost:8080/orders/stream
     "amount": 70.22
   }
 }
+```
 
+### Maintenance
+```shell
+# check for maven dependencies updates  
+mvn versions:display-dependency-updates
+ 
+# check for maven plugin updates  
+mvn versions:display-plugin-updates
 ```
